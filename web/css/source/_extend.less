@@ -1,0 +1,134 @@
+@import "lib/variables/_layout_extend.less";
+@import 'parts/_footer';
+
+& when (@media-common = true) {
+    .page-header {
+        .panel.wrapper{
+            background-color: #fff;
+            color: #242424;
+            height: 40px;
+        }
+
+        .header {
+            display: flex;
+            flex-flow: row wrap;
+            padding: 10px !important;
+            position: relative;
+            height: 140px;
+
+            .header-promotion {
+                display: contents;
+        
+                p {
+                    font-family: @font-fugue;
+                    color: #090909;
+                    font-size: 16px;
+                    width: 33%;
+                    text-align: center;
+                    padding: 0;
+                }
+            }
+        }
+
+        .block-search {
+            order: 1;
+            width: 160px;
+            float: left;
+            .action.search {
+                color: #000;
+            }
+        }
+
+        form.minisearch {
+            .control {
+                input.input-text {
+                    border: none;
+                    width: 160px;
+                }
+    
+                .action {
+                    span {
+                        color: #000;
+                    }
+                }
+            }
+
+            .nested {
+                display: none
+            }
+        }
+
+        .logo {
+            margin: auto;
+            height: 120px;
+            order: 2;   
+        }
+
+        .block-contact {
+            display: flex;
+            order: 2;
+            a {
+                color: #000;
+                font-family: @font-fugue;
+                font-size: 14px;
+                margin-right: 35px;
+
+                &:hover {
+                    text-decoration: none;
+                    color: pink;
+                }
+
+                
+            }
+            img {
+                vertical-align: text-top;
+            }
+            .mini-contact-icon{
+                display: flex;
+                &:before{
+                    font-family: @font-awesome;
+                    font-weight: 900;
+                    content: '\f095';
+                    font-size: 30px;
+                }
+                a{
+                    display: block;
+                    margin-top: 5px;
+                }
+            }
+            .mini-account-icon{
+                display: flex;
+                &:before{
+                    font-family: @font-awesome;
+                    font-weight: 900;
+                    content: '\f007';
+                    font-size: 30px;
+                }
+                a{
+                    display: block;
+                    margin-top: 5px;
+                }
+            }
+        }
+
+        .minicart-wrapper{
+            order: 3;
+            .action.action.showcart{
+                display: flex;
+            }
+            .action.showcart:before{
+                content: "\f290";
+                font-size: 30px;
+                font-family: @font-awesome;
+                font-weight: 900;
+            }
+            .bag{
+                display: block;
+                color: #000;
+                margin-top: 5px;
+                font-family: @font-fugue;
+                font-size: 14px;
+            }
+        }
+    }
+}
