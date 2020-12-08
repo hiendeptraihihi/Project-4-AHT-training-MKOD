@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+    	<referenceBlock name="page.wrapper">
+    		<block class="Magento\Framework\View\Element\Template" name="banner" template="Magento_Cms::hp-big-banner.phtml" before="main.content" />
+    	</referenceBlock>
+
+		<referenceContainer name="main">
+			<container name="home.page.feautured.product" htmlTag="section" htmlClass="home-page-featured-product">
+				<block class="Magento\Framework\View\Element\Template" name="featured.products" template="Magento_Cms::hp-feature-product.phtml" before="-" />
+				<block class=  "Magento\Framework\View\Element\Template" name = "block.home.page.trending.now" template="Magento_Cms::home-page-trending.phtml" />
+			 	<block class=  "Magento\Framework\View\Element\Template" name = "block.home.page.trending" template="Magento_Cms::trending.phtml" />
+			 </container>
+    	</referenceContainer>
+	
+		<!-- <referenceContainer name="main.content" htmlTag="main" htmlClass="page-main-full-width" /> -->
+
+     </body>
+</page>

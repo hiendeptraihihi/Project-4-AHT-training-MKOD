@@ -1,5 +1,5 @@
 @import "lib/variables/_layout_extend.less";
-@import 'parts/_footer';
+@import 'parts/_footer.less';
 
 & when (@media-common = true) {
     .page-header {
@@ -72,7 +72,6 @@
                 font-family: @font-fugue;
                 font-size: 14px;
                 margin-right: 35px;
-
                 &:hover {
                     text-decoration: none;
                     color: pink;
@@ -83,32 +82,6 @@
             img {
                 vertical-align: text-top;
             }
-            .mini-contact-icon{
-                display: flex;
-                &:before{
-                    font-family: @font-awesome;
-                    font-weight: 900;
-                    content: '\f095';
-                    font-size: 30px;
-                }
-                a{
-                    display: block;
-                    margin-top: 5px;
-                }
-            }
-            .mini-account-icon{
-                display: flex;
-                &:before{
-                    font-family: @font-awesome;
-                    font-weight: 900;
-                    content: '\f007';
-                    font-size: 30px;
-                }
-                a{
-                    display: block;
-                    margin-top: 5px;
-                }
-            }
         }
 
         .minicart-wrapper{
@@ -116,18 +89,111 @@
             .action.action.showcart{
                 display: flex;
             }
-            .action.showcart:before{
-                content: "\f290";
-                font-size: 30px;
-                font-family: @font-awesome;
-                font-weight: 900;
-            }
+            
             .bag{
                 display: block;
                 color: #000;
-                margin-top: 5px;
                 font-family: @font-fugue;
                 font-size: 14px;
+            }
+        }
+    }
+
+    // Navbar
+    .nav-sections{
+        background: #fff;
+        font-family: @font-gt-sectra-fine;
+        font-size: 16px;
+        text-transform: uppercase;
+        
+        .navigation{
+            background: #fff;
+        }
+    }
+    .block-contact {
+        position: absolute;
+        right: 55px;
+        order: 3;
+        padding-top: 18px;
+
+        a {
+            color: #000;
+            font-family: @font-fugue;
+            font-size: 14px;
+            margin-right: 35px;
+
+            &:hover {
+                text-decoration: none;
+                color: pink;
+            }
+
+            img {
+                vertical-align: text-top;
+            }
+        }
+    }
+}
+
+// Mobile
+// _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .panel.panel.wrapper{
+        height: 0 !important;
+    }
+    .page-header {
+        .header>.header-promotion {
+            display: none !important;
+        }
+
+        .header.content {
+            padding-bottom: 10px;
+            height: auto !important;
+            .block-contact {
+                display: none;
+            }
+
+            .logo {
+                margin: 0 auto !important;
+                order: 1;
+                height: auto;
+                img {
+                    height: 50px;
+                }
+            }
+
+            .block-search {
+                margin-right: 25px;
+                width: auto;
+                .label:before {
+                    color: #505252;
+                }
+
+                .control {
+                    border: none;
+                }
+            }
+
+            .nav-toggle:before {
+                color: #505252;
+            }
+            .bag{
+                display: none;
+            }
+        }
+    }
+}
+
+
+//
+// Từ 640px đến 768px
+// _____________________________________________
+
+@media screen and (min-width: @screen__s) and (max-width: @screen__m) {
+    .page-header {
+        .header.content {
+            .logo {
+                margin: 0 0 0 37%;
             }
         }
     }

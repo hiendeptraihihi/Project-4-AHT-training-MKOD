@@ -10,17 +10,11 @@
     <body>
         <referenceContainer name="header-wrapper">
             <container htmlTag="div" htmlClass="block block-contact">
-                <!-- <block class="Magento\Cms\Block\Block" name="contact-header">
+                <block class="Magento\Cms\Block\Block" name="account-header">
                     <arguments>
                         <argument name="block_id" xsi:type="string">header-contact</argument>
                     </arguments>
                 </block>
-                <block class="Magento\Cms\Block\Block" name="account-header">
-                    <arguments>
-                        <argument name="block_id" xsi:type="string">header-account</argument>
-                    </arguments>
-                </block> -->
-                <block class="Magento\Framework\View\Element\Template" template="Magento_Checkout::cart/additional_icon.phtml"></block>
             </container>
         </referenceContainer>
     </body>

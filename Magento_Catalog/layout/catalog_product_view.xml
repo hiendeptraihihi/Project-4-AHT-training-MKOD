@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Move -->
+        <move element="page.main.title" destination="product.info.main" before="-"/>
+        <move element="product.info.review" destination="product.info.main" before="product.info.price"/>
+        <move element="product.info.details" destination="product.info.main" after="product.info.overview"/>
+        <move element="product.info.social" destination="product.info.main" after="product.info.details"/>
+        <move element="product.info.sku" destination="product.info.main" after="page.main.title"/>
+        <move element="product.info.stock.sku" destination="product.info.main" after="product.info.price"/>
+        <move element="product.info.media" destination="content" before="-"/>
+        <!-- Remove -->
+        <referenceBlock name="product.info.review" remove="true"/>
+        <referenceContainer name="product.info.social" remove="true"/>
+        <!-- Add Shipping Information next to In Stock -->
+        <referenceContainer name="product.info.stock.sku">
+            <block class="Magento\CMS\Block\Block" name="shipping-info">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">shipping-info</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <!-- Add New Block to info main -->
+        <referenceContainer name="product.info.main">
+            <container name="social.icon.wrapper" htmlTag="div" htmlClass="social-icon-wrapper">
+                <block name="social.icon" class="Magento\Framework\View\Element\Template" template="Magento_Catalog::product/social-icon.phtml"></block>
+            </container>
+        </referenceContainer>
+        <!-- Add Delivery and Return to Description tab -->
+        <referenceBlock name="product.info.details">
+            <referenceBlock name="product.info.description">
+                <arguments>
+                    <argument name="title" translate="true" xsi:type="string">Product Information</argument>
+                </arguments>
+            </referenceBlock>
+            <block class="Magento\Catalog\Block\Product\View" name="product.tab.delivery"
+                   template="Magento_Catalog::product/view/tab_delivery_custom.phtml" group="detailed_info">
+                <arguments>
+                    <argument name="title" translate="true" xsi:type="string">Delivery</argument>
+                    <argument name="sort_order" xsi:type="string">21</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Catalog\Block\Product\View" name="product.tab.return"
+                   template="Magento_Catalog::product/view/tab_return_custom.phtml" group="detailed_info">
+                <arguments>
+                    <argument name="title" translate="true" xsi:type="string">Returns</argument>
+                    <argument name="sort_order" xsi:type="string">22</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>
